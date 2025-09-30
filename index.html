@@ -163,9 +163,9 @@
               </select>
             </div>
             <div class="form-row">
-              <input type="tel" name="phone" placeholder="Phone (for callback)">
+              <input type="tel" name="phone" placeholder="Phone">
             </div>
-            <button type="submit" class="btn submit">Request Callback</button>
+            <button type="submit" class="btn submit">Get Support</button>
           </form>
         </aside>
       </section>
@@ -272,38 +272,5 @@
       <small>© 2025 GetTechFix Solutions — All rights reserved.</small>
     </footer>
   </div>
-
-  <!-- Formspree Project API Integration -->
-  <script>
-    (function(){
-      const form = document.getElementById('supportForm');
-      if(!form) return;
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        // Add a subject so your Gmail is tidy
-        data._subject = 'SBCGlobal / Email Support Lead — GetTechFix';
-        try {
-          const res = await fetch('https://formspree.io/p/2837357448069644206/submissions', {
-            method: 'POST',
-            headers: {
-              'Authorization': 'Bearer efe5252ae0884ebe93752cb86c6366b5',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-          });
-          if (res.ok) {
-            alert('✅ Thank you! We\'ll contact you shortly.');
-            form.reset();
-          } else {
-            alert('❌ Something went wrong. Please try again.');
-          }
-        } catch (err) {
-          alert('❌ Network error. Please try again.');
-        }
-      });
-    })();
-  </script>
 </body>
 </html>
